@@ -1,4 +1,4 @@
-# Readout Removeable Storage and Sync
+# Readout multiple Removeable Storage and Sync Win32
 
 Tool that can be used to sync data delivered in various forms via removeable storage (USB,SD...).
 
