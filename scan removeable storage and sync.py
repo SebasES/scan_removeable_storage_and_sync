@@ -52,7 +52,7 @@ SD_CARD=[]
 threads = []
 #-----------------------------------------MAIN-------------------------------------------------------------------------
 
-print 'STATION-H4: looking for connected SD-Cards............. \n'
+print 'USB-Readout: looking for connected SD-Cards............. \n'
 
 while 1==1:
     """print 'search for directories: '"""
@@ -80,7 +80,7 @@ while 1==1:
         
     if not index:
             print '------------No MicroSD found------------------'
-            Mbox('STATION-H4', 'There wasnt any SD-Card matching to a AU# found:\n\nA)Please re-instert them into the USB and check if they appear in the File-Explorer\n\nB)Make sure there is a Folder created with the AU# on the Blackvue-Harddrive '+ root_dir + '\n\nC)Make sure the SD-Card is labeled (File-Explorer) with the AU#', 1)
+            Mbox('USB-Readout', 'There wasnt any SD-Card matching to a AU# found:\n\nA)Please re-instert them into the USB and check if they appear in the File-Explorer\n\nB)Make sure there is a Folder created with the AU# on the Blackvue-Harddrive '+ root_dir + '\n\nC)Make sure the SD-Card is labeled (File-Explorer) with the AU#', 1)
     else:
         for i in index:
                 drive_letter=''.join(map(str, drives[i]))
@@ -91,7 +91,7 @@ while 1==1:
                 drive_letter=''.join(map(str, drives[i]))
                 label=''.join(map(str, labels[i]))
                 msg_temp = msg_temp + label + '\n'
-        Mbox('STATION-H4','Following SD-Cards were found:\n\n'+msg_temp+'\nIs that correct? (If not hit cancel and make sure all SD-Cards were detected in the File-Explorer and restart program)', 1)
+        Mbox('USB-Readout','Following SD-Cards were found:\n\n'+msg_temp+'\nIs that correct? (If not hit cancel and make sure all SD-Cards were detected in the File-Explorer and restart program)', 1)
 
         for i in index:
                 drive_letter=''.join(map(str, drives[i]))
@@ -102,7 +102,7 @@ while 1==1:
                    os.makedirs(targetdir)
                 print 'copying from: ' + sourcedir
                 if not os.path.isdir(sourcedir):
-                   Mbox('STATION-H4','NO SOURCE DIRECTORY FOUND - Make sure SD-Card contains a Record Folder that contains data: ' + sourcedir, 1)
+                   Mbox('USB-Readout','NO SOURCE DIRECTORY FOUND - Make sure SD-Card contains a Record Folder that contains data: ' + sourcedir, 1)
                 print 'copying to: ' + targetdir
                 t = threading.Thread(target=SD_copyjob,args=(sourcedir, targetdir))
                 """threads.append(t)"""
