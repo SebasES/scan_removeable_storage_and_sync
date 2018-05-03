@@ -96,6 +96,7 @@ while 1==1:
         for i in index:
                 drive_letter=''.join(map(str, drives[i]))
                 label=''.join(map(str, labels[i]))
+                target_directory_name = '/' + time.strftime("%Y_%m_%d_%Hh_%Mm")
                 targetdir =root_dir + '/' + label + target_directory_name
                 sourcedir = drive_letter + source_directory_name
                 if not os.path.isdir(targetdir):
