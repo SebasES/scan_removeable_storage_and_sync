@@ -105,15 +105,16 @@ while 1==1:
                 if not os.path.isdir(sourcedir):
                    Mbox('USB-Readout','NO SOURCE DIRECTORY FOUND - Make sure SD-Card contains a Record Folder that contains data: ' + sourcedir, 1)
                 print 'copying to: ' + targetdir
-                t = threading.Thread(target=SD_copyjob,args=(sourcedir, targetdir))
+                """t = threading.Thread(target=SD_copyjob,args=(sourcedir, targetdir))"""
                 """threads.append(t)"""
-                t.start()
+                """t.start()"""
+                sync(sourcedir, targetdir, 'sync', verbose=True, modtime=True)
 
     """t.start()"""
     """t.join()"""
-    """print 'DONE - REMOVE CARDS \n'
+    print 'DONE - REMOVE CARDS \n'
     
-    input("Press enter to close program")"""
+    input("Press enter to close program")
     break
  
     
